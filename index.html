@@ -1,22 +1,44 @@
 <html>
   <body>
-    <script src="src/Thermostat.js"></script>
-<h1> Thermostat </h1>
+    <script src="jquery.js"></script>
+    <!-- <script $(document).ready(function() { }) >
+    $(document).ready(function() {})
+    </script> -->
+    <script src="interface.js"></script>
+  <h1> Thermostat </h1>
 
-Temp is: 20
+  Temp is:
+  <script src="src/Thermostat.js"></script>
 
-<form>
-  <button id= 'increaseTemp'>+</button>
-  <button id= 'increaseTemp'>-</button>
-  <button id= 'reset'>Reset</button>
-</form>
 
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>
+  <h2 id="temperature"></h2>
+    <button id='increaseTemp'>+</button>
+    <button id='decreaseTemp'>-</button>
+    <button id='reset'>Reset</button>
+  power saving mode is <span id="power-saving-status">on</span>
+  <br>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  <br>
+  Energy usage is medium
+  <script>
+    thermostat = new Thermostat();
+    $(document).ready(function() { 
+      $('#temperature').text(thermostat.temperature);
+    })
 
-Energy usage is medium
+    $('#increaseTemp').click(function() {
+    thermostat.increase();
+    $('#temperature').text(thermostat.getTemp());
+    });
+
+    $('#decreaseTemp').click(function() {
+    thermostat.decrease();
+    $('#temperature').text(thermostat.getTemp());
+    });
+  </script>
   </body>
 <style>
   .switch {
