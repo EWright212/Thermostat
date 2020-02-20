@@ -38,6 +38,17 @@ Thermostat.prototype.powerSaverSwitch  = function() {
   }
 }
 
+Thermostat.prototype.powerSaverOn = function(){
+  this.powerSaver = true
+
+}
+
+Thermostat.prototype.powerSaverOff = function(){
+  this.powerSaver = false
+}
+
+
+
 Thermostat.prototype.resetSwitch  = function() {
   this.temperature = this.standardTemp;
 }

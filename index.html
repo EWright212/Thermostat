@@ -15,12 +15,13 @@
     <button id='increaseTemp'>+</button>
     <button id='decreaseTemp'>-</button>
     <button id='reset'>Reset</button>
+    <button id='PSM OFF'>PSM OFF</button>
   power saving mode is <span id="power-saving-status">on</span>
   <br>
-  <label class="switch">
+  <!-- <label class="switch">
     <input type="checkbox">
     <span class="slider round"></span>
-  </label>
+  </label> -->
   <br>
   Energy usage is medium
   <script>
@@ -38,6 +39,17 @@
     thermostat.decrease();
     $('#temperature').text(thermostat.getTemp());
     });
+
+    $('#reset').click(function() {
+    thermostat.resetSwitch();
+    $('#temperature').text(thermostat.getTemp());
+    });
+
+    $('#PSM OFF').click(function() {
+    thermostat.powerSaverOff();
+    $('#temperature').text(thermostat.getTemp());
+    });
+
   </script>
   </body>
 <style>
